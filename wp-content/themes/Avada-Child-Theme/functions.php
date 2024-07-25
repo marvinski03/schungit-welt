@@ -2,6 +2,11 @@
 
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'avada-stylesheet' ) );
+
+    if($_GET['preview']=='new-schungit-checkout'){
+        wp_enqueue_style( 'schungit-styles', get_stylesheet_directory_uri() . '/screen.css', array( 'avada-stylesheet' ) );
+    }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
