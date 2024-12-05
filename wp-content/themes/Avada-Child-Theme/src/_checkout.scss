@@ -94,7 +94,7 @@ body.woocommerce-checkout{
         .avada-myaccount-user{display: none;}
     }
 
-    *{
+    *:not(.fusion-social-network-icon){
         font-family: "PT Sans",sans-serif !important;
     }
 
