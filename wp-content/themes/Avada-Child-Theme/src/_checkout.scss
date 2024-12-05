@@ -162,7 +162,7 @@ body.woocommerce-checkout{
 
     
 
-    .woocommerce-additional-fields,
+    .followup-checkout,
     #billing_address_2_field,
     #shipping_address_2,
     .humberger-menu{
@@ -210,7 +210,8 @@ body.woocommerce-checkout{
     .woocommerce .woocommerce-billing-fields,
     .woocommerce .woocommerce-shipping-fields,
     .woocommerce .woocommerce-form-login,
-    .woocommerce .woocommerce-account-fields{
+    .woocommerce .woocommerce-account-fields,
+    .woocommerce .woocommerce-additional-fields{
         input, select, textarea, .select2-selection__rendered{
             box-shadow: none !important;
             border-radius: 5px !important;
@@ -225,7 +226,7 @@ body.woocommerce-checkout{
             }
         }
 
-        .form-row label {
+        .form-row label, label#order_comments{
             background: #ffffff !important;
             display: inline !important;
             position: relative;
@@ -234,6 +235,11 @@ body.woocommerce-checkout{
             z-index: 2;
             padding: 0px 5px;
             color: #333333;
+        }
+
+        textarea#order_comments{
+            min-height: 120px;
+            resize: none;
         }
            
     }
