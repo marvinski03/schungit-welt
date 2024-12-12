@@ -82,6 +82,58 @@ function er_logged_in_filter($classes) {
  * @compatible    WooCommerce 3.6.5
  * @donate $9     https://businessbloomer.com/bloomer-armada/
  */
+
+
+
+
+
+
+/** LANGER ACF **/
+
+add_action('admin_head', 'my_custom_acode');
+    function my_custom_acode() {
+      echo '<style>
+       h1.vp-option {
+            background: #BFC087;
+            color: white;
+            padding: 10px !important;
+            margin-top: 50px !important;
+            font-weight: bold !important;
+        }
+        
+        h1.vp-option.first{
+            margin-top: 0px !important;
+        }
+
+        li#toplevel_page_edit-post_type-acf-field-group{display:none !important;}
+        
+      </style>';
+    }
+
+
+
+add_filter( 'woocommerce_product_tabs', 'add_product_tab', 9999 );
+   
+function add_product_tab( $tabs ) {
+   $tabs['docs'] = array(
+      'title' => __( 'Angaben zur Produktsicherheit', 'woocommerce' ), // TAB TITLE
+      'priority' => 50, // TAB SORTING (DESC 10, ADD INFO 20, REVIEWS 30)
+      'callback' => 'docs_product_tab_content', // TAB CONTENT CALLBACK
+   );
+   return $tabs;
+}
+ 
+function docs_product_tab_content() {
+   global $product;
+   $angaben = get_field("produktsicherheit_angaben","option");
+   if(get_field("produktsicherheit_angaben_product",$product->ID)){
+    $angaben = get_field("produktsicherheit_angaben_product",$product->ID);
+   }
+   echo $angaben;
+}
+
+
+/** LANGER ACF END **/
   
 // THIS WILL CREATE A NEW SHORTCODE: [wc_reg_form_bbloomer]
   
